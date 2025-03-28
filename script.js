@@ -1,5 +1,7 @@
-let tasks = [];
+// Get tasks from localStorage if available
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
+// Display tasks function
 function displayTasks() {
   const taskList = document.getElementById('taskList');
   taskList.innerHTML = '';
@@ -15,26 +17,37 @@ function displayTasks() {
   });
 }
 
+// Add task function
 function addTask() {
   const taskInput = document.getElementById('taskInput');
   const taskName = taskInput.value.trim();
 
   if (taskName !== '') {
     tasks.push({ name: taskName, completed: false });
-    displayTasks();
     taskInput.value = '';
+    updateLocalStorage(); // Save to localStorage after adding a new task
+    displayTasks();
   }
 }
 
+// Delete task function
 function deleteTask(index) {
   tasks.splice(index, 1);
+  updateLocalStorage(); // Save to localStorage after deletion
   displayTasks();
 }
 
+// Toggle completion status function
 function toggleCompletion(index) {
-    tasks[index].completed = !tasks[index].completed; // Toggles the completion status of the task
-    displayTasks(); // Calls the function to update the display based on the updated tasks array
-  }  
+  tasks[index].completed = !tasks[index].completed;
+  updateLocalStorage(); // Save to localStorage after toggling completion status
+  displayTasks();
+}
 
+// Update tasks in localStorage
+function updateLocalStorage() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// Initial call to display tasks when the page loads
 displayTasks();
-
