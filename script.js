@@ -43,5 +43,4 @@ function updateLocalStorage() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Initial call to display tasks when the page loads
 displayTasks();
