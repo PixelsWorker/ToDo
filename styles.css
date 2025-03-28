@@ -1,48 +1,105 @@
+/* Set the background color for the entire body */
 body {
+  background-color: black;
+  color: white; /* Make text white to contrast with black background */
   font-family: Arial, sans-serif;
-  background-color: black; /* Changed background color to black */
-  color: white; /* Changed text color to white for better contrast */
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Make the body take full viewport height */
 }
 
+/* Container for the to-do list */
 .container {
   text-align: center;
-  margin-top: 50px;
+  background-color: #333; /* Dark background for the container */
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Heading */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Input field for adding tasks */
 #taskInput {
+  width: 100%;
   padding: 10px;
   font-size: 16px;
-  background-color: #333; /* Dark background for input field */
-  color: white; /* White text in input field */
-  border: 1px solid #555; /* Slightly lighter border for contrast */
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #444; /* Darker background for input */
+  color: white;
 }
 
+#taskInput::placeholder {
+  color: #bbb; /* Lighter placeholder text */
+}
+
+/* Add button styling */
 button {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #3498db;
   color: white;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
+  width: 100%;
   margin-top: 10px;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #2980b9; /* Darker blue on hover */
 }
 
+/* List styles */
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
+/* List item for each task */
 li {
+  padding: 10px;
+  background-color: #444;
   margin: 10px 0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.completed {
+li.completed {
   text-decoration: line-through;
-  color: #888;
+  color: #888; /* Gray out completed tasks */
+}
+
+/* Checkbox for task completion */
+input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+/* Delete button styling */
+button.delete {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.delete:hover {
+  background-color: #c0392b; /* Darker red on hover */
 }
