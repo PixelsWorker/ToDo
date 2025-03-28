@@ -1,7 +1,5 @@
-// Get tasks from localStorage if available
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-// Display tasks function
 function displayTasks() {
   const taskList = document.getElementById('taskList');
   taskList.innerHTML = '';
@@ -17,7 +15,6 @@ function displayTasks() {
   });
 }
 
-// Add task function
 function addTask() {
   const taskInput = document.getElementById('taskInput');
   const taskName = taskInput.value.trim();
@@ -25,26 +22,23 @@ function addTask() {
   if (taskName !== '') {
     tasks.push({ name: taskName, completed: false });
     taskInput.value = '';
-    updateLocalStorage(); // Save to localStorage after adding a new task
+    updateLocalStorage(); 
     displayTasks();
   }
 }
 
-// Delete task function
 function deleteTask(index) {
   tasks.splice(index, 1);
-  updateLocalStorage(); // Save to localStorage after deletion
+  updateLocalStorage(); 
   displayTasks();
 }
 
-// Toggle completion status function
 function toggleCompletion(index) {
   tasks[index].completed = !tasks[index].completed;
-  updateLocalStorage(); // Save to localStorage after toggling completion status
+  updateLocalStorage(); 
   displayTasks();
 }
 
-// Update tasks in localStorage
 function updateLocalStorage() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
